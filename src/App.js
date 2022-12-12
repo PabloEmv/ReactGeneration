@@ -1,13 +1,15 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HomePage } from "./pages";
 
-
-//componentes como mbuena practica debe llamarse igual que el archivo
 const App = () => {
-    return (
-        <div>
-            <h1>hola mundo caluroso</h1>
-            <p>esto es un parrafo</p>
-        </div>
-    )
-}
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
 export default App;
