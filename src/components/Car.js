@@ -63,7 +63,7 @@ const CarComponent = () => {
                 placeholder="Año"
               />
             </div>
-            <BtnSendComponent/>
+            <BtnSendComponent infoBoton={'Enviar'}/>
           </form>
         </div>
       </div>

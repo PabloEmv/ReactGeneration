@@ -1,6 +1,6 @@
 import React from "react";
 
-const TableUserComponent = () => {
+const TableUserComponent = ({usuarios, deleteUser}) => {
   return (
     <div class="card">
       <div class="card-body fluid">
@@ -16,14 +16,22 @@ const TableUserComponent = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            {usuarios.map(usuario => (<tr>
               <th scope="row">1</th>
-              <td>Admin</td>
-              <td>Perez</td>
-              <td>@admin@admin.com</td>
-              <td>Admin1234</td>
-              <td><div><button type="button" class="btn btn-primary me-3">+</button><button type="button" class="btn btn-success">Editar</button><button type="button" class="btn btn-danger ms-3">Eliminar</button></div></td>
-            </tr>
+              <td>{usuario.nombre}</td>
+              <td>{usuario.apellido}</td>
+              <td>{usuario.correo}</td>
+              <td>{usuario.contrasenia}</td>
+              <td><div><button type="button" class="btn btn-primary me-3">+</button><button type="button" class="btn btn-success">Editar</button><button
+                  type="button"
+                  class="btn btn-danger"
+                  onClick={() => {
+                    deleteUser(usuario.nombre);
+                  }}
+                >
+                  Eliminar
+                </button></div></td>
+            </tr>))}
           </tbody>
         </table>
       </div>

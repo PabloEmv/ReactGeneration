@@ -57,7 +57,7 @@ const UserComponent = () => {
                 id="exampleInputPassword1"
               />
             </div>
-            <BtnSendComponent />
+            <BtnSendComponent infoBoton={'Enviar'}/>
           </form>
         </div>
       </div>
