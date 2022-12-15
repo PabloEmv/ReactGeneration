@@ -1,6 +1,6 @@
 import React from "react";
 
-const TableUserComponent = ({usuarios, deleteUser}) => {
+const TableUserComponent = ({ usuarios, deleteUser, setUsuarioEditado }) => {
   return (
     <div class="card">
       <div class="card-body fluid">
@@ -16,22 +16,37 @@ const TableUserComponent = ({usuarios, deleteUser}) => {
             </tr>
           </thead>
           <tbody>
-            {usuarios.map(usuario => (<tr>
-              <th scope="row">1</th>
-              <td>{usuario.nombre}</td>
-              <td>{usuario.apellido}</td>
-              <td>{usuario.correo}</td>
-              <td>{usuario.contrasenia}</td>
-              <td><div><button type="button" class="btn btn-primary me-3">+</button><button type="button" class="btn btn-success">Editar</button><button
-                  type="button"
-                  class="btn btn-danger"
-                  onClick={() => {
-                    deleteUser(usuario.nombre);
-                  }}
-                >
-                  Eliminar
-                </button></div></td>
-            </tr>))}
+            {usuarios.map((usuario) => (
+              <tr>
+                <th scope="row">1</th>
+                <td>{usuario.nombre}</td>
+                <td>{usuario.apellido}</td>
+                <td>{usuario.correo}</td>
+                <td>{usuario.contrasenia}</td>
+                <td>
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      onClick={() => {
+                        deleteUser(usuario.nombre);
+                      }}
+                    >
+                      Eliminar
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-warning"
+                      onClick={() => {
+                        setUsuarioEditado(usuario);
+                      }}
+                    >
+                      Editar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
